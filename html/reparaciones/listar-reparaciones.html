@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Reparaciones</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/ventas.css">
+</head>
+<body>
+
+    <header>
+        <nav class="menu-nav">
+            <ul>
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="../clientes.html">Clientes</a></li>
+                <li><a href="../reparaciones.html">Reparaciones</a></li>
+                <li><a href="../ventas.html">Ventas</a></li>
+                <li><a href="../compras.html">Compras</a></li>
+            </ul>
+        </nav>
+
+        <nav class="submenu-nav">
+            <ul>
+                <li><a href="./listar-reparaciones.html">Listar Reparaciones</a></li>
+                <li><a href="./ingresar-reparacion.html">Ingresar Reparación</a></li>
+                <li><a href="./generar-diagnostico.html">Generar Diagnóstico</a></li>
+                <li><a href="./entrega-proveedor.html">Entrega Proveedor</a></li>
+                <li><a href="./reingreso-proveedor.html">Reingreso Proveedor</a></li>
+                <li><a href="./entrega-cliente.html">Entrega Cliente</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        
+        <h1>Listado de Reparaciones</h1>
+
+        <h2>Seleccionar una reparación para ver más detalles...</h2>
+
+        <section class="container">
+
+            <div class="acciones">
+                <button id="btn-filtrar" class="btn-filtros">Filtrar</button>
+                <button id="btn-ver-mas" class="btn-ver-mas oculto">Ver Más</button>
+            </div>
+
+            <table class="tabla" id="tabla-reparaciones">
+                <thead>
+                    <tr>
+                        <th>Fecha Ingreso</th>
+                        <th>Reparación</th>
+                        <th>Cliente</th>
+                        <th>Proveedor</th>
+                        <th>Título</th>
+                        <th>Código</th>
+                        <th>Serie</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2025-07-08</td>
+                        <td>12345</td>
+                        <td>ACME S.A.</td>
+                        <td>ProveedorX</td>
+                        <td>Monitor LCD</td>
+                        <td>MON123</td>
+                        <td>SN-98765</td>
+                        <td>Presupuesto Pendiente</td>
+                    </tr>
+                    <tr>
+                        <td>2025-07-07</td>
+                        <td>12346</td>
+                        <td>Beta S.R.L.</td>
+                        <td>ProveedorY</td>
+                        <td>Teclado</td>
+                        <td>TEC456</td>
+                        <td>SN-54321</td>
+                        <td>Sin Respuesta</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </section>
+
+    </main>
+
+    <script src="../../js/script.js"></script>
+    <script src="../../js/ventas.js"></script>
+    <script src="../../js/ventas/listar-reparaciones.js"></script>
+
+</body>
+</html>

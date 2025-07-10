@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generar Presupuesto</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/ventas.css">
+</head>
+<body>
+
+    <header>
+        <nav class="menu-nav">
+            <ul>
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="../clientes.html">Clientes</a></li>
+                <li><a href="../reparaciones.html">Reparaciones</a></li>
+                <li><a href="../ventas.html">Ventas</a></li>
+                <li><a href="../compras.html">Compras</a></li>
+            </ul>
+        </nav>
+
+        <nav class="submenu-nav">
+            <ul>
+                <li><a href="./generar-ppto.html">Generar Presupuesto</a></li>
+                <li><a href="./aprobar-ppto.html">Aprobar Presupuesto</a></li>
+                <li><a href="./generar-factura.html">Generar Factura</a></li>
+                <li><a href="./registrar-pago.html">Registrar Pago</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        
+        <h1>Generar Presupuesto</h1>
+
+        <h2 id="subtitulo-reparacion">Seleccionar una reparación para avanzar...</h2>
+
+        <div class="acciones">
+            <button id="btn-repa-marcada" class="btn-repa-marcada">Generar Presupuesto</button>
+        </div>
+
+
+        <table class="tabla" id="tabla-reparaciones">
+            <thead>
+                <tr>
+                    <th>Fecha Ingreso</th>
+                    <th>Reparación</th>
+                    <th>Cliente</th>
+                    <th>Proveedor</th>
+                    <th>Título</th>
+                    <th>Código</th>
+                    <th>Serie</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2025-07-08</td>
+                    <td>12345</td>
+                    <td>ACME S.A.</td>
+                    <td>ProveedorX</td>
+                    <td>Monitor LCD</td>
+                    <td>MON123</td>
+                    <td>SN-98765</td>
+                    <td>Presupuesto Pendiente</td>
+                </tr>
+                <tr>
+                    <td>2025-07-07</td>
+                    <td>12346</td>
+                    <td>Beta S.R.L.</td>
+                    <td>ProveedorY</td>
+                    <td>Teclado</td>
+                    <td>TEC456</td>
+                    <td>SN-54321</td>
+                    <td>Presupuesto Pendiente</td>
+                </tr>
+                <tr>
+                        <td>2025-07-08</td>
+                        <td>12347</td>
+                        <td>ACME S.A.</td>
+                        <td>ProveedorX</td>
+                        <td>Monitor LCD</td>
+                        <td>MON123</td>
+                        <td>SN-98765</td>
+                        <td>Presupuesto Pendiente</td>
+                    </tr>
+                    <tr>
+                        <td>2025-07-07</td>
+                        <td>12348</td>
+                        <td>Beta S.R.L.</td>
+                        <td>ProveedorY</td>
+                        <td>Teclado</td>
+                        <td>TEC456</td>
+                        <td>SN-54321</td>
+                        <td>Presupuesto Pendiente</td>
+                    </tr>
+            </tbody>
+        </table>
+
+        <section class="contenedor oculto">
+
+            <!-- Datos del Equipo -->
+            <fieldset>
+                <legend>Datos del Equipo</legend>
+                <div class="fila">
+                <label>Número de Reparación:</label>
+                <input type="text" readonly>
+
+                <label>Fecha de Ingreso:</label>
+                <input type="date" value="2025-05-08" readonly>
+                </div>
+
+                <div class="fila">
+                <label>Cliente:</label>
+                <input type="text" readonly>
+
+                <label>Código del Equipo:</label>
+                <input type="text" readonly>
+                </div>
+
+                <div class="fila">
+                <label>Título del Equipo:</label>
+                <input type="text" readonly>
+
+                <label>Número de Serie:</label>
+                <input type="text" readonly>
+                </div>
+            </fieldset>
+
+            <!-- Informe -->
+            <fieldset>
+                <legend>Informe</legend>
+                <div class="fila">
+                <label>Falla Informada:</label>
+                <textarea readonly></textarea>
+                </div>
+
+                <div class="fila">
+                <label>Fecha de Informe:</label>
+                <input type="date" value="2025-05-08">
+                </div>
+
+                <div class="fila">
+                <label>Comentarios:</label>
+                <textarea></textarea>
+                </div>
+
+                <div class="fila">
+                <label>Diagnóstico:</label>
+                <textarea></textarea>
+                </div>
+            </fieldset>
+
+            <!-- Presupuesto -->
+            <fieldset>
+                <legend>Presupuesto</legend>
+                <div class="fila">
+                <label>Importe ARS:</label>
+                <input type="text">
+
+                <label>Descuento:</label>
+                <input type="text" placeholder="Valor">
+                <input type="text" placeholder="%">
+                </div>
+
+                <div class="fila">
+                <label>Importe USD:</label>
+                <input type="text">
+
+                <label>Adicional:</label>
+                <input type="text" placeholder="Valor">
+                <input type="text" placeholder="%">
+                </div>
+
+                <div class="fila">
+                <label>Tipo de Cambio:</label>
+                <input type="text">
+                </div>
+
+                <div class="fila">
+                <label>TOTAL ARS:</label>
+                <input type="text" readonly>
+
+                <label>TOTAL USD:</label>
+                <input type="text" readonly>
+                </div>
+
+                <div class="fila">
+                <label>Comentarios:</label>
+                <textarea placeholder="ej: costos: $..... + $..... = $....."></textarea>
+                </div>
+            </fieldset>
+
+            <div class="acciones">
+                <button id="btn-confirmar" class="btn-confirmar oculto">Generar Presupuesto</button>
+                <button id="btn-cancelar" class="btn-cancelar oculto">Cancelar</button>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="../../js/script.js"></script>
+    <script src="../../js/ventas.js"></script>
+    <script src="../../js/ventas/generar-ppto.js"></script>
+
+</body>
+</html>

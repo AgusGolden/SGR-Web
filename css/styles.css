@@ -1,0 +1,244 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 16px;
+    background-color: #F7F7FF;
+    padding: .5em 1em;
+}
+
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1; /*El contenido principal ocupa el espacio disponible*/
+}
+
+
+nav{
+    padding: 1em 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.menu-nav {
+    border-bottom: 2px solid #FB3640;
+}
+.submenu-nav {
+    border-bottom: 2px solid #11215A;
+    width: fit-content;
+    margin: 0 auto;
+}
+nav ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 3em;
+}
+.menu-nav ul{
+    gap: 5em;
+}
+.submenu-nav ul{
+    gap: 2em;
+}
+.menu-nav ul li a{
+    text-decoration: none;
+    color: #11215A;
+    font-weight: bold;
+}
+.submenu-nav ul li a{
+    text-decoration: none;
+    color: #11215A;
+    font-weight: bold;
+}
+.menu-nav ul li a:hover,
+.submenu-nav ul li a:hover {
+    color: #FB3640;
+    transition: .2s;
+}
+.menu-nav a.activo,
+.submenu-nav a.activo {
+    color: #FB3640;
+}
+.menu-nav a.activo:hover,
+.submenu-nav a.activo:hover {
+    color: #2948a5;
+    transition: .2s;
+}
+
+
+
+.contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 1em;
+    border: 1px solid #ccc;
+    padding: 2em;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+
+h1 {
+    padding: .5em 0 .5em 0;
+    margin: 1em 0;
+    color: #11215A;
+    font-size: 2rem;
+    text-align: center;
+}
+h2 {
+    margin: 1.5em 0 1em;
+    color: #11215A;
+    font-size: 1.2rem;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: .5em;
+}
+
+h3 {
+    color: #11215A;
+    margin-bottom: 0.5em;
+    font-size: 1rem;
+}
+
+
+
+.btn-volver {
+    display: inline-block;
+    padding: 0.6em 1.2em;
+    background-color: #11215A;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+}
+
+.btn-volver:hover {
+    background-color: #0a143d;
+}
+
+
+/* Estilos generales para tablas */
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5em;
+}
+
+.tabla th,
+.tabla td {
+  border: 1px solid #ccc;
+  padding: 0.5em 1em;
+  text-align: left;
+}
+.tabla th {
+  background-color: #11215A;
+  color: white;
+  font-weight: bold;
+}
+
+.fila-seleccionada {
+  background-color: #cce4ff;
+}
+
+
+/* Estilo general de inputs y selects */
+input[type="text"],
+input[type="date"],
+input[type="number"],
+select {
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 1rem;
+    padding: 0.4rem 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #fff;
+    color: #11215A;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="number"]:focus,
+select:focus {
+    border-color: #FB3640;
+    outline: none;
+    box-shadow: 0 0 4px rgba(251, 54, 64, 0.4);
+}
+
+/* Opciones del select */
+select option {
+    background-color: #fff;
+    color: #11215A;
+}
+
+/* Ajuste para selects más pequeños o dentro de tablas */
+select,
+input[type="number"],
+input[type="text"] {
+    min-width: 200px;
+    max-width: 100%;
+}
+
+/* Espaciado entre inputs en columnas */
+.columna label,
+.columna input,
+.columna select {
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+/* Alineación si están en tabla */
+.tabla input,
+.tabla select {
+    padding: 0.3rem;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.oculto {
+    display: none;
+}
+
+
+footer {
+    text-align: center;
+    padding: 1em 0;
+    background-color: #11215A;
+    color: white;
+    font-size: 0.9em;
+    margin-top: 2em;
+}
+
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 1em;
+    }
+    nav ul {
+        flex-direction: column;
+        gap: 1em;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestión de Reparaciones</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/logistica.css">
+</head>
+
+<body>
+    <header>
+        <nav class="menu-nav">
+            <ul>
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="../clientes.html">Clientes</a></li>
+                <li><a href="../reparaciones.html">Reparaciones</a></li>
+                <li><a href="../ventas.html">Ventas</a></li>
+                <li><a href="../compras.html">Compras</a></li>
+            </ul>
+        </nav>
+
+        <nav class="submenu-nav">
+            <ul>
+                <li><a href="./listar-reparaciones.html">Listar Reparaciones</a></li>
+                <li><a href="./ingresar-reparacion.html">Ingresar Reparación</a></li>
+                <li><a href="./generar-diagnostico.html">Generar Diagnóstico</a></li>
+                <li><a href="./entrega-proveedor.html">Entrega Proveedor</a></li>
+                <li><a href="./reingreso-proveedor.html">Reingreso Proveedor</a></li>
+                <li><a href="./entrega-cliente.html">Entrega Cliente</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Ingresar Reparación</h1>
+
+        <section class="contenedor formulario">
+
+            <div class="fila">
+                <label for="nro-reparacion">Número de Reparación:</label>
+                <input type="text" id="nro-reparacion" name="nro-reparacion" readonly>
+                
+                <label for="fecha-ingreso">Fecha de Ingreso:</label>
+                <input type="date" id="fecha-ingreso" name="fecha-ingreso">
+            </div>
+
+            <div class="fila">
+                <label for="cliente">Cliente:</label>
+                <select id="cliente" name="cliente">
+                    <option value="" disabled selected>Seleccionar cliente</option>
+                    <!-- Opciones dinámicas -->
+                </select>
+            </div>
+
+            <div class="fila">
+                <label for="titulo-equipo">Título del Equipo:</label>
+                <input type="text" id="titulo-equipo" name="titulo-equipo">
+            </div>
+
+            <div class="fila">
+                <label for="descripcion-falla">Descripción de Falla:</label>
+                <textarea id="descripcion-falla" name="descripcion-falla"></textarea>
+            </div>
+
+            <div class="fila">
+                <label for="codigo-equipo">Código del Equipo:</label>
+                <input type="text" id="codigo-equipo" name="codigo-equipo">
+                
+                <label for="numero-serie">Número de Serie:</label>
+                <input type="text" id="numero-serie" name="numero-serie">
+            </div>
+
+            <div class="fila">
+                <label for="descripcion-equipo">Descripción del Equipo:</label>
+                <textarea id="descripcion-equipo" name="descripcion-equipo"></textarea>
+            </div>
+
+            <div class="fila">
+                <label for="remito-cliente">Remito Cliente:</label>
+                <input type="text" id="remito-cliente" name="remito-cliente">
+            </div>
+
+            <div class="fila">
+                <p>Asignación:</p>
+                <label><input type="radio" name="asignacion" value="Propia" checked onchange="toggleProveedor()"> Propia</label>
+                <label>
+                    <input type="radio" name="asignacion" value="Proveedor" onchange="toggleProveedor()"> Proveedor
+                </label>
+
+                <select id="proveedor-asignado" name="proveedor" disabled>
+                    <option value="" disabled selected>Seleccionar proveedor</option>
+                    <!-- Opciones dinámicas -->
+                </select>
+            </div>
+
+            <div class="acciones">
+                <button type="button" onclick="ingresarReparacion()">Ingresar Reparación</button>
+            </div>
+
+        </section>
+    </main>
+
+    <script src="../../js/script.js"></script>
+    <script src="../../js/logistica.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestión de Reparaciones</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/clientes.css">
+</head>
+<body>
+    <header>
+        <nav class="menu-nav">
+            <ul>
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="../clientes.html">Clientes</a></li>
+                <li><a href="../reparaciones.html">Reparaciones</a></li>
+                <li><a href="../ventas.html">Ventas</a></li>
+                <li><a href="../compras.html">Compras</a></li>
+            </ul>
+        </nav>
+        
+        <nav class="submenu-nav">
+            <ul>
+                <li><a href="./listado.html">Listado Clientes y Proveedores</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Clientes</h1>
+
+        <div class="fila">
+            <p>Tipo de Cliente:</p>
+            <label><input type="radio" name="tipoCliente" value="Empresarial" checked onchange="filtrarTabla(this.value)"> Empresarial</label>
+            <label><input type="radio" name="tipoCliente" value="Individual" onchange="filtrarTabla(this.value)"> Individual</label>
+            <label><input type="radio" name="tipoCliente" value="Proveedor" onchange="filtrarTabla(this.value)"> Proveedor</label>
+        </div>
+
+        <h2>Listado de Clientes</h2>
+        <table class="tabla" id="tabla-clientes">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Tipo</th>
+                    <th>Nombre / Empresa</th>
+                    <th>Razón Social</th>
+                    <th>CUIT / DNI</th>
+                    <th>Dirección</th>
+                    <th>Localidad</th>
+                    <th>CP</th>
+                    <th>Provincia</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr onclick="seleccionarFila(this)" data-tipo="Empresarial">
+                    <td>1</td>
+                    <td>Empresarial</td>
+                    <td>TechCorp</td>
+                    <td>TechCorp S.A.</td>
+                    <td>30-12345678-9</td>
+                    <td>Av. Siempre Viva 123</td>
+                    <td>Buenos Aires</td>
+                    <td>1000</td>
+                    <td>Buenos Aires</td>
+                </tr>
+                <tr onclick="seleccionarFila(this)" data-tipo="Individual">
+                    <td>2</td>
+                    <td>Individual</td>
+                    <td>Juan Pérez</td>
+                    <td>-</td>
+                    <td>12345678</td>
+                    <td>Calle Falsa 456</td>
+                    <td>Rosario</td>
+                    <td>2000</td>
+                    <td>Santa Fe</td>
+                </tr>
+                <tr onclick="seleccionarFila(this)" data-tipo="Proveedor">
+                    <td>3</td>
+                    <td>Proveedor</td>
+                    <td>ProveedorTech</td>
+                    <td>ProveedorTech S.A.</td>
+                    <td>30-98765432-1</td>
+                    <td>Ruta 9 km 500</td>
+                    <td>Córdoba</td>
+                    <td>5000</td>
+                    <td>Córdoba</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <section class="contenedor formulario">
+            <h2 id="titulo-datos">Datos del Cliente o Proveedor</h2>
+
+            <!-- <div class="fila">
+                <label for="id">ID:</label>
+                <input type="text" id="id" name="id" placeholder="ID del cliente/proveedor" />
+            </div> -->
+
+            <div class="acciones">
+                <button id="btn-alta" type="submit">Generar Alta</button>
+                <a href="./contactos.html"><button id="btn-contactos" type="button">Ver Contactos</button></a>
+                <button id="btn-guardar" type="button" class="oculto">Aplicar Cambios</button>
+                <button id="btn-deshabilitar" type="button" class="deshabilitar oculto">Deshabilitar</button>
+            </div>
+
+            <div class="seccion-dual">
+                <!-- Cliente Empresarial -->
+                <div class="subseccion" id="empresarial">
+                    <label for="id-empresarial">ID:</label>
+                    <input type="text" id="id-empresarial" name="id" class="campo-id" readonly>
+                    <label for="tipo-empresarial">Tipo:</label>
+                    <select id="tipo-empresarial" name="tipo" class="campo-tipo">
+                        <option value="Empresarial" selected>Empresarial</option>
+                        <option value="Individual">Individual</option>
+                        <option value="Proveedor">Proveedor</option>
+                    </select>
+                    <label for="empresa">Empresa:</label>
+                    <input type="text" id="empresa" name="empresa" class="campo-empresa">
+                    <label for="razon">Razón Social:</label>
+                    <input type="text" id="razon" name="razon" class="campo-razon">
+                    <label for="doc">CUIT:</label>
+                    <input type="text" id="doc" name="doc" class="campo-doc">
+                    <label for="direccion">Dirección:</label>
+                    <input type="text" id="direccion" name="direccion" class="campo-direccion">
+                    <label for="localidad">Localidad:</label>
+                    <input type="text" id="localidad" name="localidad" class="campo-localidad">
+                    <label for="cp">CP:</label>
+                    <input type="text" id="cp" name="cp" class="campo-cp">
+                    <label for="provincia">Provincia:</label>
+                    <input type="text" id="provincia" name="provincia" class="campo-provincia">
+                </div>
+
+                <!-- Cliente Individual -->
+                <div class="subseccion" id="individual">
+                    <label for="id-individual">ID:</label>
+                    <input type="text" id="id-individual" name="id" class="campo-id" readonly>
+                    <label for="tipo-individual">Tipo:</label>
+                    <select id="tipo-individual" name="tipo" class="campo-tipo">
+                        <option value="Empresarial">Empresarial</option>
+                        <option value="Individual" selected>Individual</option>
+                        <option value="Proveedor">Proveedor</option>
+                    </select>
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" class="campo-nombre">
+                    <label for="apellido">Apellido:</label>
+                    <input type="text" id="apellido" name="apellido" class="campo-apellido">
+                    <label for="dni">DNI:</label>
+                    <input type="text" id="dni" name="dni" class="campo-doc">
+                    <label for="direccion-ind">Dirección:</label>
+                    <input type="text" id="direccion-ind" name="direccion" class="campo-direccion">
+                    <label for="localidad-ind">Localidad:</label>
+                    <input type="text" id="localidad-ind" name="localidad" class="campo-localidad">
+                    <label for="cp-ind">CP:</label>
+                    <input type="text" id="cp-ind" name="cp" class="campo-cp">
+                    <label for="provincia-ind">Provincia:</label>
+                    <input type="text" id="provincia-ind" name="provincia" class="campo-provincia">
+                </div>
+
+                <!-- Proveedor -->
+                <div class="subseccion" id="proveedor">
+                    <label for="id-proveedor">ID:</label>
+                    <input type="text" id="id-proveedor" name="id" class="campo-id" readonly>
+                    <label for="tipo-proveedor">Tipo:</label>
+                    <select id="tipo-proveedor" name="tipo" class="campo-tipo">
+                        <option value="Empresarial">Empresarial</option>
+                        <option value="Individual">Individual</option>
+                        <option value="Proveedor" selected>Proveedor</option>
+                    </select>
+                    <label for="empresa-prov">Empresa:</label>
+                    <input type="text" id="empresa-prov" name="empresa" class="campo-empresa">
+                    <label for="razon-prov">Razón Social:</label>
+                    <input type="text" id="razon-prov" name="razon" class="campo-razon">
+                    <label for="cuit-prov">CUIT:</label>
+                    <input type="text" id="cuit-prov" name="doc" class="campo-doc">
+                    <label for="direccion-prov">Dirección:</label>
+                    <input type="text" id="direccion-prov" name="direccion" class="campo-direccion">
+                    <label for="localidad-prov">Localidad:</label>
+                    <input type="text" id="localidad-prov" name="localidad" class="campo-localidad">
+                    <label for="cp-prov">CP:</label>
+                    <input type="text" id="cp-prov" name="cp" class="campo-cp">
+                    <label for="provincia-prov">Provincia:</label>
+                    <input type="text" id="provincia-prov" name="provincia" class="campo-provincia">
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="../../script.js"></script>
+    <script src="../../js/clientes.js"></script>
+
+</body>
+</html>

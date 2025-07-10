@@ -1,0 +1,122 @@
+/* Formulario */
+.formulario-contacto {
+  display: flex;
+  gap: 2em;
+  flex-wrap: wrap; /* para que baje en pantallas chicas */
+  max-width: 700px;
+  margin: 0 auto 2em auto;
+}
+
+.form-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.formulario-contacto label {
+  font-weight: bold;
+  color: #11215A;
+}
+
+.formulario-contacto input,
+.formulario-contacto textarea {
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.3s;
+}
+
+.formulario-contacto input:focus,
+.formulario-contacto textarea:focus {
+  outline: none;
+  border-color: #FB3640;
+  box-shadow: 0 0 5px #FB3640AA;
+}
+
+.formulario-contacto textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Botones dentro del formulario */
+.acciones {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+    margin-top: 1em;
+}
+
+.acciones button {
+    padding: 0.5em 1em;
+    border: none;
+    background-color: #FB3640;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.acciones button:hover {
+    background-color: #c62d35;
+}
+
+.acciones .eliminar,
+.acciones .limpiar {
+    background-color: #999;
+}
+
+.acciones .eliminar:hover,
+.acciones .limpiar:hover {
+    background-color: #666;
+}
+
+/* Tabla */
+.tabla-contactos {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5em;
+}
+
+.tabla-contactos th,
+.tabla-contactos td {
+  border: 1px solid #ccc;
+  padding: 0.5em 1em;
+  text-align: left;
+}
+
+.tabla-contactos th {
+  background-color: #11215A;
+  color: white;
+  font-weight: bold;
+}
+
+.fila-seleccionada {
+  background-color: #cce4ff;
+}
+
+/* Botones inferiores y volver */
+.acciones-inferiores {
+    text-align: center;
+    margin-top: 2em;
+}
+
+.btn-volver {
+    display: inline-block;
+    padding: 0.6em 1.2em;
+    background-color: #11215A;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-volver:hover {
+    background-color: #0a143d;
+}

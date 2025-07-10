@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprobar Presupuesto</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/ventas.css">
+</head>
+<body>
+
+    <header>
+        <nav class="menu-nav">
+            <ul>
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="../clientes.html">Clientes</a></li>
+                <li><a href="../reparaciones.html">Reparaciones</a></li>
+                <li><a href="../ventas.html">Ventas</a></li>
+                <li><a href="../compras.html">Compras</a></li>
+            </ul>
+        </nav>
+
+        <nav class="submenu-nav">
+            <ul>
+                <li><a href="./generar-ppto.html">Generar Presupuesto</a></li>
+                <li><a href="./aprobar-ppto.html">Aprobar Presupuesto</a></li>
+                <li><a href="./generar-factura.html">Generar Factura</a></li>
+                <li><a href="./registrar-pago.html">Registrar Pago</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        
+        <h1>Aprobar Presupuesto</h1>
+
+        <section class="contenedor">
+
+            <!-- Sección Detalle -->
+            <fieldset>
+                <legend>Orden de Compra Asociada</legend>
+                <div class="fila" style="align-items: center; gap: 1rem;">
+                    <label for="num-oc">Número de OC:</label>
+                    <input type="text" id="num-oc" name="num-oc" placeholder="Ingrese número de OC" style="flex-grow: 1; max-width: 200px;">
+
+                    <div class="acciones oc">
+                        <button type="button" id="btn-cargar-doc" title="Cargar Documento">Cargar Documento</button>
+                        <button type="button" id="btn-ver-adjunto" title="Ver Adjunto" disabled>Ver Adjunto</button>
+                    </div>
+                </div>
+            </fieldset>
+            
+            <!-- Sección Cliente -->
+            <fieldset>
+                <legend>Seleccionar un Cliente</legend>
+                <div class="fila" style="align-items: center; gap: 1rem;">
+                    <label for="cliente">Cliente:</label>
+                    <select id="cliente" name="cliente">
+                        <option value="">Seleccionar un Cliente</option>
+                        <option value="ACME S.A.">ACME S.A.</option>
+                        <option value="Beta S.R.L.">Beta S.R.L.</option>
+                    </select>
+                </div>
+            </fieldset>
+
+            <!-- Sección Listado Equipos Pendientes -->
+            <fieldset style="margin-top: 2rem;">
+                <legend>Listado Equipos Pendientes de Aprobación</legend>
+
+                <table class="tabla" id="tabla-equipos-pendientes" style="width: 100%; border-collapse: collapse;">
+                    <thead>
+                        <tr>
+                            <th>Marcar</th>
+                            <th>Fecha Ingreso</th>
+                            <th>Reparación</th>
+                            <th>Cliente</th>
+                            <th>Proveedor</th>
+                            <th>Título</th>
+                            <th>Código</th>
+                            <th>Serie</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>2025-07-08</td>
+                            <td>12345</td>
+                            <td>ACME S.A.</td>
+                            <td>ProveedorX</td>
+                            <td>Monitor LCD</td>
+                            <td>MON123</td>
+                            <td>SN-98765</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>2025-07-07</td>
+                            <td>12346</td>
+                            <td>Beta S.R.L.</td>
+                            <td>ProveedorY</td>
+                            <td>Teclado</td>
+                            <td>TEC456</td>
+                            <td>SN-54321</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>2025-07-08</td>
+                            <td>12347</td>
+                            <td>ACME S.A.</td>
+                            <td>ProveedorX</td>
+                            <td>Monitor LCD</td>
+                            <td>MON123</td>
+                            <td>SN-98765</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>2025-07-07</td>
+                            <td>12348</td>
+                            <td>Beta S.R.L.</td>
+                            <td>ProveedorY</td>
+                            <td>Teclado</td>
+                            <td>TEC456</td>
+                            <td>SN-54321</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+
+            <div class="acciones" style="text-align: center; margin-top: 1.5rem;">
+                <button id="btn-registrar-aprobaciones" class="btn-registrar-aprobaciones">Registrar Aprobaciones</button>
+            </div>
+
+        </section>
+
+
+    </main>
+
+    <script src="../../js/script.js"></script>
+    <script src="../../js/ventas.js"></script>
+    <script src="../../js/ventas/aprobar-ppto.js"></script>
+
+
+</body>
+</html>

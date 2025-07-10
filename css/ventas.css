@@ -1,0 +1,141 @@
+/* Contenedor general */
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    padding: 1em;
+}
+
+/* Fieldsets y leyendas */
+fieldset {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 1.5em;
+    background-color: #fff;
+}
+
+legend {
+    padding: 0 0.5em;
+    font-weight: bold;
+    color: #11215A;
+    font-size: 1.1em;
+}
+
+/* Fila general con columnas flexibles */
+.fila {
+    display: flex;
+    column-gap:3em;
+    row-gap: .5em;
+    flex-wrap: wrap;
+}
+
+/* Columnas internas */
+.columna {
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Labels e inputs */
+label {
+    font-weight: bold;
+    color: #11215A;
+    margin-bottom: 0.3em;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 0.5em 0.8em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 1rem;
+    background-color: #fff;
+    color: #11215A;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #FB3640;
+    outline: none;
+    box-shadow: 0 0 4px rgba(251, 54, 64, 0.3);
+}
+
+/* Select options */
+select option {
+    background-color: #fff;
+    color: #11215A;
+}
+
+/* Textareas */
+textarea {
+    resize: vertical;
+    min-height: 3em;
+}
+
+/* Acciones con botón */
+.acciones {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    margin: 2em 0;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: #F7F7FF;
+}
+
+.acciones button {
+    background-color: #11215A;
+    color: white;
+    border: none;
+    padding: 0.8em 2em;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.acciones button:hover {
+    background-color: #2948a5;
+}
+
+/* Tablas */
+.tabla {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1em;
+    background-color: #fff;
+}
+
+.tabla th,
+.tabla td {
+    border: 1px solid #ccc;
+    padding: 0.6em;
+    text-align: left;
+}
+
+.tabla th {
+    background-color: #11215A;
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .fila {
+        flex-direction: column;
+    }
+
+    .acciones {
+        flex-direction: column;
+    }
+
+    .columna {
+        min-width: 100%;
+    }
+}

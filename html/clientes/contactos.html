@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sistema de Gestión de Reparaciones - Contactos</title>
+    <link rel="stylesheet" href="../../css/styles.css" />
+    <link rel="stylesheet" href="../../css/contactos.css" />
+</head>
+
+<body>
+
+    <header>
+        <nav class="menu-nav">
+            <ul>
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="../clientes.html">Clientes</a></li>
+                <li><a href="../reparaciones.html">Reparaciones</a></li>
+                <li><a href="../ventas.html">Ventas</a></li>
+                <li><a href="../compras.html">Compras</a></li>
+            </ul>
+        </nav>
+
+        <nav class="submenu-nav">
+            <ul>
+                <li><a href="./listado.html">Listado Clientes y Proveedores</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <h1>Detalle de Contactos</h1>
+
+        <section class="contenedor">
+
+            <div class="acciones">
+                <a href="./listado.html" class="btn-volver">Volver</a>
+            </div>
+
+            <h2>Agregar Contactos</h2>
+
+            <form class="formulario-contacto" id="form-contacto">
+                <div class="form-col">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" />
+
+                    <label for="apellido">Apellido:</label>
+                    <input type="text" id="apellido" name="apellido" />
+
+                    <label for="telefono">Teléfono:</label>
+                    <input type="text" id="telefono" name="telefono" />
+                </div>
+
+                <div class="form-col">
+                    <label for="mail">Mail:</label>
+                    <input type="email" id="mail" name="mail" />
+
+                    <label for="cargo">Cargo:</label>
+                    <input type="text" id="cargo" name="cargo" />
+
+                    <label for="nota">Nota:</label>
+                    <textarea id="nota" name="nota"></textarea>
+                </div>
+
+                <!-- Botones dentro del formulario -->
+                <div class="acciones" id="acciones-agregar">
+                    <button type="reset" id="btn-limpiar" class="limpiar">Limpiar</button>
+                    <button type="submit" id="btn-agregar">Añadir Contacto</button>
+                </div>
+                
+                <div class="acciones" id="acciones-modificar">
+                    <button type="button" id="btn-eliminar" class="eliminar" disabled>Eliminar Contacto</button>
+                    <button type="button" id="btn-aplicar" disabled>Aplicar Cambios</button>
+                </div>
+
+            </form>
+
+
+
+            <h2>Lista de Contactos</h2>
+
+            <table class="tabla">
+                <thead>
+                    <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Teléfono</th>
+                    <th>Mail</th>
+                    <th>Cargo</th>
+                    <th>Nota</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <td>Juan</td>
+                    <td>Pérez</td>
+                    <td>11-1234-5678</td>
+                    <td>juan@example.com</td>
+                    <td>Compras</td>
+                    <td>Contacto habitual</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </section>
+
+    </main>
+
+    <script src="../../js/clientes.js"></script>
+    <script src="../../js/contactos.js"></script>
+
+</body>
+
+</html>

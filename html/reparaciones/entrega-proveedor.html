@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrega Proveedor</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/logistica.css">
+</head>
+
+<body>
+    <header>
+        <nav class="menu-nav">
+            <ul>
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="../clientes.html">Clientes</a></li>
+                <li><a href="../reparaciones.html">Reparaciones</a></li>
+                <li><a href="../ventas.html">Ventas</a></li>
+                <li><a href="../compras.html">Compras</a></li>
+            </ul>
+        </nav>
+
+        <nav class="submenu-nav">
+            <ul>
+                <li><a href="./listar-reparaciones.html">Listar Reparaciones</a></li>
+                <li><a href="./ingresar-reparacion.html">Ingresar Reparación</a></li>
+                <li><a href="./generar-diagnostico.html">Generar Diagnóstico</a></li>
+                <li><a href="./entrega-proveedor.html">Entrega Proveedor</a></li>
+                <li><a href="./reingreso-proveedor.html">Reingreso Proveedor</a></li>
+                <li><a href="./entrega-cliente.html">Entrega Cliente</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        
+        <h1>Entrega Proveedor</h1>
+
+        <section class="contenedor">
+            <div class="fila">
+                <label for="proveedor">Seleccionar Proveedor:</label>
+                <select id="proveedor-entrega">
+                    <option value="">-- Seleccionar --</option>
+                    <option>Proveedor A</option>
+                    <option>Proveedor B</option>
+                </select>
+            </div>
+
+            <div class="fila">
+                <p>Tipo de Remito:</p>
+                <input type="radio" name="tipoRemito" class="tipo-remito" value="normal">
+                <label for="remito-normal">Remito Normal</label>
+                <input type="radio" name="tipoRemito" class="tipo-remito" value="proforma">
+                <label for="remito-proforma">Remito Proforma</label>
+            </div>
+
+            <div class="fila">
+                <label for="remito">Número de Remito:</label>
+                <input type="text" id="remito" placeholder="Ej: 00123">
+            </div>
+
+            <table class="tabla">
+                <thead>
+                    <tr>
+                        <th>Marcar</th>
+                        <th>Número</th>
+                        <th>Cliente</th>
+                        <th>Fecha</th>
+                        <th>Título</th>
+                        <th>Código</th>
+                        <th>Número de Serie</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-cuerpo"></tbody>
+            </table>
+
+            <div class="acciones">
+                <button id="btn-generar">Generar Entrega</button>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="../../js/script.js"></script>
+    <script src="../../js/logistica.js"></script>
+</body>
+</html>

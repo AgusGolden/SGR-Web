@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generar Diagnóstico</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/reparaciones.css">
+</head>
+<body>
+
+    <header>
+        <nav class="menu-nav">
+            <ul>
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="../clientes.html">Clientes</a></li>
+                <li><a href="../reparaciones.html">Reparaciones</a></li>
+                <li><a href="../ventas.html">Ventas</a></li>
+                <li><a href="../compras.html">Compras</a></li>
+            </ul>
+        </nav>
+
+        <nav class="submenu-nav">
+            <ul>
+                <li><a href="./listar-reparaciones.html">Listar Reparaciones</a></li>
+                <li><a href="./ingresar-reparacion.html">Ingresar Reparación</a></li>
+                <li><a href="./generar-diagnostico.html">Generar Diagnóstico</a></li>
+                <li><a href="./entrega-proveedor.html">Entrega Proveedor</a></li>
+                <li><a href="./reingreso-proveedor.html">Reingreso Proveedor</a></li>
+                <li><a href="./entrega-cliente.html">Entrega Cliente</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        
+        <h1>Generar Diagnóstico</h1>
+
+        <section class="contenedor">
+
+            <!-- Selección de Reparación Pendiente -->
+            <fieldset>
+                <legend>Seleccionar Reparación</legend>
+                <table class="tabla" id="tabla-reparaciones-pendientes">
+                    <thead>
+                        <tr>
+                            <th>Fecha Ingreso</th>
+                            <th>Reparación</th>
+                            <th>Cliente</th>
+                            <th>Equipo</th>
+                            <th>Serie</th>
+                            <th>Seleccionar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Las filas se cargan por JS -->
+                        <tr>
+                            <td>2025-07-10</td>
+                            <td>REP-1001</td>
+                            <td>Empresa X</td>
+                            <td>Notebook</td>
+                            <td>SER12345</td>
+                            <td><button class="btn-seleccionar">Seleccionar</button></td>
+                        </tr>
+                        <tr>
+                            <td>2025-07-09</td>
+                            <td>REP-1002</td>
+                            <td>Empresa Y</td>
+                            <td>PC Escritorio</td>
+                            <td>SER67890</td>
+                            <td><button class="btn-seleccionar">Seleccionar</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+
+            <!-- Formulario de Diagnóstico -->
+            <fieldset id="form-diagnostico" class="oculto">
+                <legend>Detalle del Diagnóstico Técnico</legend>
+                <div class="fila">
+                    <label for="sintoma">Síntoma informado:</label>
+                    <textarea id="sintoma" rows="2" placeholder="Ej: No enciende, pantalla negra..."></textarea>
+                </div>
+                <div class="fila">
+                    <label for="causa">Causa detectada:</label>
+                    <textarea id="causa" rows="2" placeholder="Ej: Fuente dañada, capacitor quemado..."></textarea>
+                </div>
+                <div class="fila">
+                    <label for="diagnostico">Diagnóstico técnico:</label>
+                    <textarea id="diagnostico" rows="3" placeholder="Descripción técnica del estado del equipo..."></textarea>
+                </div>
+                <div class="fila">
+                    <label for="repuestos">Repuestos o soluciones sugeridas:</label>
+                    <textarea id="repuestos" rows="2" placeholder="Ej: Reemplazar fuente de alimentación 600W..."></textarea>
+                </div>
+
+                <div class="acciones" style="text-align: center; margin-top: 1.5rem;">
+                    <button id="btn-guardar-diagnostico">Guardar Diagnóstico</button>
+                    <button id="btn-cancelar-diagnostico" type="button">Cancelar</button>
+                </div>
+            </fieldset>
+
+        </section>
+    </main>
+
+
+    <script src="../../js/script.js"></script>
+    <script src="../../js/reparaciones/generar-diagnostico.js"></script>
+
+</body>
+</html>

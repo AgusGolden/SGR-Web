@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Pago</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/ventas.css">
+</head>
+<body>
+
+    <header>
+        <nav class="menu-nav">
+            <ul>
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="../clientes.html">Clientes</a></li>
+                <li><a href="../reparaciones.html">Reparaciones</a></li>
+                <li><a href="../ventas.html">Ventas</a></li>
+                <li><a href="../compras.html">Compras</a></li>
+            </ul>
+        </nav>
+
+        <nav class="submenu-nav">
+            <ul>
+                <li><a href="./generar-ppto.html">Generar Presupuesto</a></li>
+                <li><a href="./aprobar-ppto.html">Aprobar Presupuesto</a></li>
+                <li><a href="./generar-factura.html">Generar Factura</a></li>
+                <li><a href="./registrar-pago.html">Registrar Pago</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        
+        <h1>Registrar Pago</h1>
+
+        <section class="contenedor">
+
+            <!-- Selección de Facturas Pendientes -->
+            <fieldset>
+                <legend>Facturas Pendientes de Pago</legend>
+                <table class="tabla" id="tabla-facturas">
+                    <thead>
+                        <tr>
+                            <th>Seleccionar</th>
+                            <th>Nro Factura</th>
+                            <th>Cliente</th>
+                            <th>Fecha</th>
+                            <th>Total</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="radio" name="factura-seleccionada"></td>
+                            <td>FAC-00123</td>
+                            <td>ACME S.A.</td>
+                            <td>2025-07-05</td>
+                            <td>$152.000</td>
+                            <td>Pendiente</td>
+                        </tr>
+                        <tr>
+                            <td><input type="radio" name="factura-seleccionada"></td>
+                            <td>FAC-00124</td>
+                            <td>Beta S.R.L.</td>
+                            <td>2025-07-07</td>
+                            <td>$87.300</td>
+                            <td>Pendiente</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+
+            <!-- Datos del Pago -->
+            <fieldset>
+                <legend>Detalle del Pago</legend>
+                <div class="fila">
+                    <label for="fecha-pago">Fecha de Pago:</label>
+                    <input type="date" id="fecha-pago" value="2025-07-10">
+
+                    <label for="metodo-pago">Método de Pago:</label>
+                    <select id="metodo-pago">
+                        <option value="">Seleccionar</option>
+                        <option value="transferencia">Transferencia Bancaria</option>
+                        <option value="efectivo">Efectivo</option>
+                        <option value="tarjeta">Tarjeta de Crédito</option>
+                        <option value="cheque">Cheque</option>
+                    </select>
+                </div>
+
+                <div class="fila">
+                    <label for="importe-pagado">Importe Pagado:</label>
+                    <input type="text" id="importe-pagado" placeholder="$0.00">
+
+                    <label for="observaciones">Observaciones:</label>
+                    <input type="text" id="observaciones" placeholder="Opcional">
+                </div>
+            </fieldset>
+
+            <!-- Acción Final -->
+            <div class="acciones">
+                <button id="btn-registrar-pago" class="btn-confirmar">Registrar Pago</button>
+                <button id="btn-cancelar-pago" class="btn-cancelar">Cancelar</button>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="../../js/script.js"></script>
+    <script src="../../js/ventas.js"></script>
+    <script src="../../js/ventas/registrar-pago.js"></script>
+
+</body>
+</html>
