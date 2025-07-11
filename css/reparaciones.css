@@ -1,0 +1,24 @@
+/* reparaciones.css - estilos particulares */
+
+.fila p {
+    font-weight: bold;
+    color: #11215A;
+    margin: 1em 0 1em 0;
+}
+
+.fila input[type="radio"] {
+    margin-right: 0.5em;
+}
+
+.acciones {
+    margin-top: 3em;
+    /* display y justify-content ya en styles.css */
+}
+
+.acciones button {
+    padding: 0.8em 2em;
+}
+
+.columna textarea {
+    max-width: none;
+}

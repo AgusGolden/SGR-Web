@@ -1,45 +1,107 @@
-// document.addEventListener('DOMContentLoaded', () => {
-//     const menuLinks = document.querySelectorAll('.menu-nav a');
-//     const submenuLinks = document.querySelectorAll('.submenu-nav a');
+// script.js
 
-//     // Obtener el archivo actual (ej: listar-reparaciones.html)
-//     const archivoActual = window.location.pathname.split('/').pop();
+// Selección única de fila en una tabla (general para todas)
+function seleccionarUnicaFila(filas, onSeleccionar, onDeseleccionar) {
+    filas.forEach(fila => {
+        fila.addEventListener('click', () => {
+            const yaSeleccionada = fila.classList.contains('fila-seleccionada');
+            filas.forEach(f => f.classList.remove('fila-seleccionada'));
+            if (!yaSeleccionada) {
+                fila.classList.add('fila-seleccionada');
+                if (onSeleccionar) onSeleccionar(fila);
+            } else {
+                if (onDeseleccionar) onDeseleccionar();
+            }
+        });
+    });
+}
 
-//     let seccionMenuPrincipal = null;
+// Mostrar mensaje de feedback en pantalla (exito o error)
+function mostrarMensaje(texto, tipo = 'exito', duracion = 4000) {
+    let contenedor = document.getElementById('mensaje-feedback');
+    if (!contenedor) {
+        contenedor = document.createElement('div');
+        contenedor.id = 'mensaje-feedback';
+        contenedor.classList.add('mensaje-feedback');
+        document.body.prepend(contenedor);
+    }
+    contenedor.textContent = texto;
+    contenedor.className = 'mensaje-feedback'; // reset clases
+    contenedor.classList.add(tipo);
+    contenedor.style.display = 'block';
 
-//     // Buscar y activar el enlace del submenu correspondiente al archivo actual
-//     submenuLinks.forEach(link => {
-//         const href = link.getAttribute('href'); // ej: "./ventas/listar-reparaciones.html"
-//         const partesHref = href.split('/');     // ["." , "ventas", "listar-reparaciones.html"]
-//         const archivoHref = partesHref[partesHref.length - 1];
+    setTimeout(() => {
+        contenedor.style.display = 'none';
+    }, duracion);
+}
 
-//         if (archivoHref === archivoActual) {
-//             link.classList.add('activo');
+// Limpiar campos input y textarea dentro de un contenedor (formulario o sección)
+function limpiarCampos(contenedor) {
+    if (!contenedor) return;
+    const campos = contenedor.querySelectorAll('input:not([readonly]), textarea');
+    campos.forEach(campo => campo.value = '');
+}
 
-//             // Detectar la carpeta (sección) a la que pertenece el submenu (ej: "ventas")
-//             if (partesHref.length >= 2) {
-//                 seccionMenuPrincipal = partesHref[partesHref.length - 2]; // ej: "ventas"
-//             }
-//         }
-//     });
+// Scroll suave hacia un elemento
+function scrollToElement(el) {
+    if (!el) return;
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
 
-//     // Activar el menú principal correspondiente a la sección detectada
-//     if (seccionMenuPrincipal) {
-//         menuLinks.forEach(link => {
-//             const href = link.getAttribute('href'); // ej: "./ventas.html"
-//             const archivoMenu = href.split('/').pop(); // ej: "ventas.html"
-//             if (archivoMenu === `${seccionMenuPrincipal}.html`) {
-//                 link.classList.add('activo');
-//             }
-//         });
-//     } else {
-//         // Si no hay submenú activo, activar el menú si coincide directamente con el archivo
-//         const archivoMenuActual = window.location.pathname.split('/').pop();
-//         menuLinks.forEach(link => {
-//             const archivoHref = link.getAttribute('href').split('/').pop();
-//             if (archivoHref === archivoMenuActual) {
-//                 link.classList.add('activo');
-//             }
-//         });
-//     }
-// });
+// Inicializar input file invisible y asociar con botón visible
+function crearInputFile(btnCargar, aceptados = '') {
+    const inputFile = document.createElement('input');
+    inputFile.type = 'file';
+    inputFile.accept = aceptados;
+    inputFile.style.display = 'none';
+    document.body.appendChild(inputFile);
+
+    btnCargar.addEventListener('click', () => inputFile.click());
+
+    return inputFile;
+}
+
+// Activar/desactivar botones fácilmente
+function activarBoton(boton, estado) {
+    if (!boton) return;
+    boton.disabled = !estado;
+}
+
+// Validar que todos los campos (ids) estén completos (no vacíos)
+function validarCampos(obligatorios) {
+    return obligatorios.every(id => {
+        const campo = document.getElementById(id);
+        return campo && campo.value.trim() !== '';
+    });
+}
+
+// Limpiar selección de checkboxes en una tabla
+function limpiarCheckboxes(tabla) {
+    if (!tabla) return;
+    tabla.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+}
+
+// Inicializar selección de filas con activación/desactivación de botón
+function initSeleccionFilas(tablaId, btnId, callbackOnSelect = null, callbackOnDeselect = null) {
+    const tabla = document.getElementById(tablaId);
+    const btn = document.getElementById(btnId);
+    if (!tabla || !btn) return;
+
+    const filas = [...tabla.querySelectorAll('tbody tr')];
+
+    seleccionarUnicaFila(filas,
+        fila => {
+            activarBoton(btn, true);
+            if (callbackOnSelect) callbackOnSelect(fila);
+        },
+        () => {
+            activarBoton(btn, false);
+            if (callbackOnDeselect) callbackOnDeselect();
+        }
+    );
+
+    activarBoton(btn, false);
+}
+
+// Exportar funciones si usás módulos (opcional)
+// export { seleccionarUnicaFila, mostrarMensaje, limpiarCampos, scrollToElement, crearInputFile, activarBoton, validarCampos, limpiarCheckboxes, initSeleccionFilas };

@@ -1,117 +1,122 @@
+/* styles.css - Estilos comunes y base */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html{
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+html {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 16px;
     background-color: #F7F7FF;
-    padding: .5em 1em;
-}
-
-html, body {
+    padding: 0.5em 1em;
     height: 100%;
     display: flex;
     flex-direction: column;
 }
 
+body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
 main {
-    flex: 1; /*El contenido principal ocupa el espacio disponible*/
-}
-
-
-nav{
-    padding: 1em 0;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-.menu-nav {
-    border-bottom: 2px solid #FB3640;
-}
-.submenu-nav {
-    border-bottom: 2px solid #11215A;
-    width: fit-content;
-    margin: 0 auto;
-}
-nav ul{
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding-inline: 3em;
-}
-.menu-nav ul{
-    gap: 5em;
-}
-.submenu-nav ul{
-    gap: 2em;
-}
-.menu-nav ul li a{
-    text-decoration: none;
-    color: #11215A;
-    font-weight: bold;
-}
-.submenu-nav ul li a{
-    text-decoration: none;
-    color: #11215A;
-    font-weight: bold;
-}
-.menu-nav ul li a:hover,
-.submenu-nav ul li a:hover {
-    color: #FB3640;
-    transition: .2s;
-}
-.menu-nav a.activo,
-.submenu-nav a.activo {
-    color: #FB3640;
-}
-.menu-nav a.activo:hover,
-.submenu-nav a.activo:hover {
-    color: #2948a5;
-    transition: .2s;
-}
-
-
-
-.contenedor {
+    /* flex: 1; */
     max-width: 1200px;
     margin: 0 auto;
     margin-bottom: 1em;
-    border: 1px solid #ccc;
+    border: 1px solid #eee;
     padding: 2em;
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 
+h1, h2, h3 {
+    color: #11215A;
+}
 
 h1 {
-    padding: .5em 0 .5em 0;
-    margin: 1em 0;
-    color: #11215A;
     font-size: 2rem;
+    padding: 0.5em 0;
+    margin: 0;
     text-align: center;
 }
+
 h2 {
-    margin: 1.5em 0 1em;
-    color: #11215A;
     font-size: 1.2rem;
+    margin: 1.5em 0 1em;
     border-bottom: 1px solid #ccc;
-    padding-bottom: .5em;
+    padding-bottom: 0.5em;
 }
 
 h3 {
-    color: #11215A;
-    margin-bottom: 0.5em;
     font-size: 1rem;
+    margin-bottom: 0.5em;
 }
 
+/* Navegación */
 
+nav {
+    padding: 1em 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.menu-nav {
+    border-bottom: 2px solid #FB3640;
+}
+
+.submenu-nav {
+    border-bottom: 2px solid #11215A;
+    width: fit-content;
+    margin: 0 auto;
+    margin-bottom: 2em;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2em;
+    padding-inline: 3em;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.menu-nav ul {
+    gap: 5em;
+}
+
+.menu-nav ul li a,
+.submenu-nav ul li a {
+    text-decoration: none;
+    color: #11215A;
+    font-weight: bold;
+    transition: color 0.2s ease;
+}
+
+.menu-nav ul li a:hover,
+.submenu-nav ul li a:hover {
+    color: #FB3640;
+}
+
+.menu-nav a.activo,
+.submenu-nav a.activo {
+    color: #FB3640;
+}
+
+.menu-nav a.activo:hover,
+.submenu-nav a.activo:hover {
+    color: #2948a5;
+}
+
+/* Botón volver común */
 
 .btn-volver {
     display: inline-block;
@@ -122,100 +127,191 @@ h3 {
     text-decoration: none;
     font-weight: bold;
     text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .btn-volver:hover {
     background-color: #0a143d;
 }
 
-
-/* Estilos generales para tablas */
+/* Estilo general para todas las tablas */
 .tabla {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 1.5em;
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto; /* columnas se ajustan al contenido */
+    background-color: #fff;
+    margin-bottom: 1.5em;
 }
 
-.tabla th,
-.tabla td {
-  border: 1px solid #ccc;
-  padding: 0.5em 1em;
-  text-align: left;
-}
+/* Encabezados de tabla */
+.tabla thead th,
 .tabla th {
-  background-color: #11215A;
-  color: white;
-  font-weight: bold;
+    background-color: #11215A;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 0.6em;
+    white-space: nowrap;
 }
 
+/* Celdas de datos */
+.tabla td {
+    padding: 0.6em;
+    border: 1px solid #ccc;
+    text-align: center;
+    vertical-align: middle; /* centra verticalmente */
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+/* Fila resaltada al pasar el mouse */
+.tabla tbody tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+/* Fila seleccionada */
 .fila-seleccionada {
-  background-color: #cce4ff;
+    background-color: #cce4ff;
 }
 
 
-/* Estilo general de inputs y selects */
+/* Inputs, selects, textarea comunes */
+
 input[type="text"],
 input[type="date"],
 input[type="number"],
-select {
+select,
+textarea {
     font-family: 'Trebuchet MS', sans-serif;
     font-size: 1rem;
-    padding: 0.4rem 0.6rem;
+    padding: 0.5em 0.8em;
     border: 1px solid #ccc;
-    border-radius: 6px;
-    background-color: #fff;
+    border-radius: 4px;
+    background-color: white;
     color: #11215A;
     width: 100%;
     box-sizing: border-box;
     transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    resize: vertical;
 }
 
 input[type="text"]:focus,
 input[type="date"]:focus,
 input[type="number"]:focus,
-select:focus {
-    border-color: #FB3640;
+select:focus,
+textarea:focus {
     outline: none;
-    box-shadow: 0 0 4px rgba(251, 54, 64, 0.4);
+    border-color: #FB3640;
+    box-shadow: 0 0 5px #FB3640AA;
 }
 
-/* Opciones del select */
+/* Select options */
+
 select option {
-    background-color: #fff;
+    background-color: white;
     color: #11215A;
 }
 
-/* Ajuste para selects más pequeños o dentro de tablas */
-select,
-input[type="number"],
-input[type="text"] {
-    min-width: 200px;
+/* Layouts comunes */
+
+.fila {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    margin-bottom: 1em;
+    align-items: center;
+}
+
+.fila label,
+label {
+    font-weight: bold;
+    color: #11215A;
+    margin-bottom: 0.3em;
+}
+
+.columna {
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Agrupadores internos */
+.columna, .campo-flex {
+    flex: 1 1 300px; /* Crece, encoge, mínimo 300px */
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
     max-width: 100%;
 }
 
-/* Espaciado entre inputs en columnas */
-.columna label,
+/* Asegura buen tamaño para input/select */
 .columna input,
-.columna select {
-    margin-bottom: 0.5rem;
-    display: block;
+.columna select,
+.columna textarea,
+.campo-flex input,
+.campo-flex select,
+.campo-flex textarea {
+    box-sizing: border-box;
+    min-height: 2.5em;
+    max-width: 400px;
 }
 
-/* Alineación si están en tabla */
-.tabla input,
-.tabla select {
-    padding: 0.3rem;
-    text-align: center;
-    align-items: center;
+/* Botones comunes */
+.acciones {
+    width: 100%;
+    display: flex;
     justify-content: center;
+    gap: 1em;
+    margin: 1.5em 0;
+    flex-wrap: wrap;
 }
 
+.acciones button {
+    padding: 0.6em 1.2em;
+    border: none;
+    border-radius: 4px;
+    background-color: #11215A;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
 
+.acciones button:hover {
+    background-color: #2948a5;
+}
+
+/* Estados especiales botones */
+
+.acciones .deshabilitar {
+    background-color: #FB3640;
+}
+
+.acciones .deshabilitar:hover {
+    background-color: #922020;
+}
+
+.acciones .eliminar,
+.acciones .limpiar {
+    background-color: #999;
+}
+
+.acciones .eliminar:hover,
+.acciones .limpiar:hover {
+    background-color: #666;
+}
+
+/* Oculto común */
 
 .oculto {
-    display: none;
+    display: none !important;
 }
 
+/* Footer */
 
 footer {
     text-align: center;
@@ -226,19 +322,90 @@ footer {
     margin-top: 2em;
 }
 
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    padding: 1em;
+}
+
+fieldset {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 1.5em;
+    background-color: #fff;
+}
+
+legend {
+    padding: 0 0.5em;
+    font-weight: bold;
+    color: #11215A;
+    font-size: 1.1em;
+}
+
+
+/* Responsividad */
 
 @media (max-width: 768px) {
     nav {
         flex-direction: column;
         gap: 1em;
     }
+
     nav ul {
         flex-direction: column;
         gap: 1em;
     }
 
+    .fila {
+        flex-direction: column;
+    }
+
+    .acciones {
+        flex-direction: column;
+        gap: 1em;
+    }
+
+    .columna {
+        min-width: 100%;
+    }
 }
 
-@media (max-width: 480px) {
+/* Index.html: estilos específicos */
 
+body.index-page {
+    background-color: #F7F7FF;
+    padding: 1em 1em 2em;
 }
+
+body.index-page main {
+    max-width: 900px;
+    padding: 3em 2em;
+    text-align: center;
+    box-shadow: none;
+    border: none;
+    margin: 0 auto 3em;
+}
+
+body.index-page h1 {
+    font-size: 3rem;
+    margin-bottom: 1em;
+    color: #11215A;
+}
+
+body.index-page nav {
+    justify-content: space-between;
+    padding: 1em 3em;
+}
+
+body.index-page nav ul {
+    gap: 3em;
+    padding-inline: 0;
+    justify-content: flex-start;
+}
+
+.main-index {
+    flex: 1;
+}
+
+/* Puedes seguir agregando más estilos para index acá */

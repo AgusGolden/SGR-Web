@@ -1,8 +1,9 @@
-/* Formulario */
+/* contactos.css - solo estilos particulares */
+
 .formulario-contacto {
   display: flex;
   gap: 2em;
-  flex-wrap: wrap; /* para que baje en pantallas chicas */
+  flex-wrap: wrap;
   max-width: 700px;
   margin: 0 auto 2em auto;
 }
@@ -19,45 +20,17 @@
   color: #11215A;
 }
 
-.formulario-contacto input,
-.formulario-contacto textarea {
-  padding: 0.5em;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1rem;
-  font-family: inherit;
-  transition: border-color 0.3s;
-}
-
-.formulario-contacto input:focus,
-.formulario-contacto textarea:focus {
-  outline: none;
-  border-color: #FB3640;
-  box-shadow: 0 0 5px #FB3640AA;
-}
-
-.formulario-contacto textarea {
-  resize: vertical;
-  min-height: 80px;
-}
-
-/* Botones dentro del formulario */
 .acciones {
     width: 100%;
-    display: flex;
-    justify-content: center;
     gap: 2em;
     margin-top: 1em;
+    /* display y justify-content ya en styles.css */
 }
 
 .acciones button {
-    padding: 0.5em 1em;
-    border: none;
     background-color: #FB3640;
-    color: white;
+    padding: 0.5em 1em;
     border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
     transition: background-color 0.3s;
 }
 
@@ -75,7 +48,6 @@
     background-color: #666;
 }
 
-/* Tabla */
 .tabla-contactos {
   width: 100%;
   border-collapse: collapse;
@@ -99,24 +71,7 @@
   background-color: #cce4ff;
 }
 
-/* Botones inferiores y volver */
 .acciones-inferiores {
     text-align: center;
     margin-top: 2em;
-}
-
-.btn-volver {
-    display: inline-block;
-    padding: 0.6em 1.2em;
-    background-color: #11215A;
-    color: white;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.btn-volver:hover {
-    background-color: #0a143d;
 }

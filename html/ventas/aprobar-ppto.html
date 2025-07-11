@@ -40,13 +40,14 @@
             <!-- Sección Detalle -->
             <fieldset>
                 <legend>Orden de Compra Asociada</legend>
-                <div class="fila" style="align-items: center; gap: 1rem;">
-                    <label for="num-oc">Número de OC:</label>
-                    <input type="text" id="num-oc" name="num-oc" placeholder="Ingrese número de OC" style="flex-grow: 1; max-width: 200px;">
-
-                    <div class="acciones oc">
-                        <button type="button" id="btn-cargar-doc" title="Cargar Documento">Cargar Documento</button>
-                        <button type="button" id="btn-ver-adjunto" title="Ver Adjunto" disabled>Ver Adjunto</button>
+                <div class="fila">
+                    <div class="campo-flex">
+                        <label for="num-oc">Número de OC:</label>
+                        <input type="text" id="num-oc" name="num-oc" placeholder="Ingrese número de OC">
+                    </div>
+                    <div class="acciones">
+                        <button type="button" id="btn-cargar-doc">Cargar Documento</button>
+                        <button type="button" id="btn-ver-adjunto" disabled>Ver Adjunto</button>
                     </div>
                 </div>
             </fieldset>
@@ -54,21 +55,23 @@
             <!-- Sección Cliente -->
             <fieldset>
                 <legend>Seleccionar un Cliente</legend>
-                <div class="fila" style="align-items: center; gap: 1rem;">
-                    <label for="cliente">Cliente:</label>
-                    <select id="cliente" name="cliente">
-                        <option value="">Seleccionar un Cliente</option>
-                        <option value="ACME S.A.">ACME S.A.</option>
-                        <option value="Beta S.R.L.">Beta S.R.L.</option>
-                    </select>
+                <div class="fila">
+                    <div class="campo-flex">
+                        <label for="cliente">Cliente:</label>
+                        <select id="cliente" name="cliente">
+                            <option value="">Seleccionar un Cliente</option>
+                            <option value="ACME S.A.">ACME S.A.</option>
+                            <option value="Beta S.R.L.">Beta S.R.L.</option>
+                        </select>
+                    </div>
                 </div>
             </fieldset>
 
             <!-- Sección Listado Equipos Pendientes -->
-            <fieldset style="margin-top: 2rem;">
+            <fieldset>
                 <legend>Listado Equipos Pendientes de Aprobación</legend>
 
-                <table class="tabla" id="tabla-equipos-pendientes" style="width: 100%; border-collapse: collapse;">
+                <table class="tabla" id="tabla-equipos-pendientes">
                     <thead>
                         <tr>
                             <th>Marcar</th>
@@ -126,8 +129,8 @@
                 </table>
             </fieldset>
 
-            <div class="acciones" style="text-align: center; margin-top: 1.5rem;">
-                <button id="btn-registrar-aprobaciones" class="btn-registrar-aprobaciones">Registrar Aprobaciones</button>
+            <div class="acciones">
+                <button id="btn-registrar-aprobaciones">Registrar Aprobaciones</button>
             </div>
 
         </section>
