@@ -5,15 +5,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnGenerar = document.getElementById('btn-repa-marcada');
     const btnConfirmar = document.getElementById('btn-confirmar');
     const btnCancelar = document.getElementById('btn-cancelar');
-    const contenedor = document.querySelector('section.contenedor');
+    const contenedor = document.getElementById('formulario-ppto');
     const btnVerMas = document.getElementById('btn-ver-mas');
     const btnFiltrar = document.getElementById('btn-filtrar');
     let filaSeleccionada = null;
 
+    // Adicionales
+    const chkAdicionalFijo = document.getElementById('chk-adicional-fijo');
+    const chkAdicionalPorc = document.getElementById('chk-adicional-porc');
+    const inputAdicionalFijo = document.getElementById('input-adicional-fijo');
+    const contenedorPorcentaje = document.getElementById('contenedor-porcentaje');
+    const inputValorPorcentaje = document.getElementById('input-valor-porcentaje');
+
     function limpiarFormulario() {
         if (!contenedor) return;
-        const campos = contenedor.querySelectorAll('input:not([readonly]), textarea');
+        const campos = contenedor.querySelectorAll('input:not([readonly]):not([type="radio"]):not([type="checkbox"]), textarea');
         campos.forEach(c => c.value = '');
+        chkAdicionalFijo.checked = false;
+        chkAdicionalPorc.checked = false;
+        inputAdicionalFijo.classList.add('oculto');
+        contenedorPorcentaje.classList.add('oculto');
+        inputValorPorcentaje.classList.add('oculto');
     }
 
     if (!tabla || !btnGenerar || !btnConfirmar || !btnCancelar || !subtitulo || !contenedor) return;
@@ -44,9 +56,10 @@ document.addEventListener('DOMContentLoaded', () => {
         inputs[0].value = celdas[1].textContent;
         inputs[1].value = celdas[0].textContent;
         inputs[2].value = celdas[2].textContent;
-        inputs[3].value = celdas[5].textContent;
+        inputs[3].value = celdas[3].textContent;
         inputs[4].value = celdas[4].textContent;
-        inputs[5].value = celdas[6].textContent;
+        inputs[5].value = celdas[5].textContent;
+        inputs[6].value = celdas[6].textContent;
 
         subtitulo.classList.add('oculto');
         btnGenerar.classList.add('oculto');
@@ -79,4 +92,14 @@ document.addEventListener('DOMContentLoaded', () => {
             location.href = './listar-reparaciones.html';
         });
     }
+
+    // Lógica para mostrar campos de adicionales según selección
+    chkAdicionalFijo.addEventListener('change', () => {
+        inputAdicionalFijo.classList.toggle('oculto', !chkAdicionalFijo.checked);
+    });
+
+    chkAdicionalPorc.addEventListener('change', () => {
+        contenedorPorcentaje.classList.toggle('oculto', !chkAdicionalPorc.checked);
+        inputValorPorcentaje.classList.toggle('oculto', !chkAdicionalPorc.checked);
+    });
 });

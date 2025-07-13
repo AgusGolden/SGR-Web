@@ -61,7 +61,7 @@
                         <td>2025-07-08</td>
                         <td>12345</td>
                         <td>ACME S.A.</td>
-                        <td>ProveedorX</td>
+                        <td>-</td>
                         <td>Monitor LCD</td>
                         <td>MON123</td>
                         <td>SN-98765</td>
@@ -78,121 +78,163 @@
                         <td>Presupuesto Pendiente</td>
                     </tr>
                     <tr>
-                            <td>2025-07-08</td>
-                            <td>12347</td>
-                            <td>ACME S.A.</td>
-                            <td>ProveedorX</td>
-                            <td>Monitor LCD</td>
-                            <td>MON123</td>
-                            <td>SN-98765</td>
-                            <td>Presupuesto Pendiente</td>
-                        </tr>
-                        <tr>
-                            <td>2025-07-07</td>
-                            <td>12348</td>
-                            <td>Beta S.R.L.</td>
-                            <td>ProveedorY</td>
-                            <td>Teclado</td>
-                            <td>TEC456</td>
-                            <td>SN-54321</td>
-                            <td>Presupuesto Pendiente</td>
-                        </tr>
+                        <td>2025-07-08</td>
+                        <td>12347</td>
+                        <td>ACME S.A.</td>
+                        <td>-</td>
+                        <td>Monitor LCD</td>
+                        <td>MON123</td>
+                        <td>SN-98765</td>
+                        <td>Presupuesto Pendiente</td>
+                    </tr>
+                    <tr>
+                        <td>2025-07-07</td>
+                        <td>12348</td>
+                        <td>Beta S.R.L.</td>
+                        <td>ProveedorY</td>
+                        <td>Teclado</td>
+                        <td>TEC456</td>
+                        <td>SN-54321</td>
+                        <td>Presupuesto Pendiente</td>
+                    </tr>
                 </tbody>
             </table>
 
-            <section class="contenedor oculto">
+            <section id="formulario-ppto" class="contenedor oculto">
 
                 <!-- Datos del Equipo -->
                 <fieldset>
                     <legend>Datos del Equipo</legend>
-                    <div class="fila">
-                    <label>Número de Reparación:</label>
-                    <input type="text" readonly>
 
-                    <label>Fecha de Ingreso:</label>
-                    <input type="date" value="2025-05-08" readonly>
+                    <div class="fila">
+                        <label>Número de Reparación:</label>
+                        <input type="text" readonly>
+
+                        <label>Fecha de Ingreso:</label>
+                        <input type="date" value="2025-05-08" readonly>
                     </div>
 
                     <div class="fila">
-                    <label>Cliente:</label>
-                    <input type="text" readonly>
+                        <label>Cliente:</label>
+                        <input type="text" readonly>
 
-                    <label>Código del Equipo:</label>
-                    <input type="text" readonly>
+                        <label>Proveedor:</label>
+                        <input type="text" readonly>
                     </div>
 
                     <div class="fila">
-                    <label>Título del Equipo:</label>
-                    <input type="text" readonly>
+                        <label>Título del Equipo:</label>
+                        <input type="text" readonly>
 
-                    <label>Número de Serie:</label>
-                    <input type="text" readonly>
+                        <label>Código del Equipo:</label>
+                        <input type="text" readonly>
+
+                        <label>Número de Serie:</label>
+                        <input type="text" readonly>
                     </div>
                 </fieldset>
 
                 <!-- Informe -->
                 <fieldset>
                     <legend>Informe</legend>
+                    
                     <div class="fila">
-                    <label>Falla Informada:</label>
-                    <textarea readonly></textarea>
+                        <label>Fecha de Informe:</label>
+                        <input type="date" value="2025-05-08">
                     </div>
 
                     <div class="fila">
-                    <label>Fecha de Informe:</label>
-                    <input type="date" value="2025-05-08">
+                        <label>Falla Informada:</label>
+                        <textarea readonly></textarea>
                     </div>
 
                     <div class="fila">
-                    <label>Comentarios:</label>
-                    <textarea></textarea>
+                        <label>Diagnóstico:</label>
+                        <textarea></textarea>
                     </div>
 
                     <div class="fila">
-                    <label>Diagnóstico:</label>
-                    <textarea></textarea>
+                        <label>Comentarios:</label>
+                        <textarea></textarea>
                     </div>
                 </fieldset>
 
                 <!-- Presupuesto -->
                 <fieldset>
                     <legend>Presupuesto</legend>
-                    <div class="fila">
-                    <label>Importe ARS:</label>
-                    <input type="text">
 
-                    <label>Descuento:</label>
-                    <input type="text" placeholder="Valor">
-                    <input type="text" placeholder="%">
+                    <!-- Moneda -->
+                    <div class="fila">
+                        <label>Moneda:</label>
+                        <select id="moneda">
+                            <option value="ARS">ARS</option>
+                            <option value="USD">USD</option>
+                        </select>
                     </div>
 
+                    <!-- Importe -->
                     <div class="fila">
-                    <label>Importe USD:</label>
-                    <input type="text">
-
-                    <label>Adicional:</label>
-                    <input type="text" placeholder="Valor">
-                    <input type="text" placeholder="%">
+                        <label>Importe:</label>
+                        <input type="text" id="importe">
                     </div>
 
+                    <!-- Descuento -->
                     <div class="fila">
-                    <label>Tipo de Cambio:</label>
-                    <input type="text">
+                        <label>Tipo de Descuento:</label>
+                        <select id="tipo-descuento">
+                            <option value="">-</option>
+                            <option value="porcentaje-importe">% sobre importe</option>
+                            <option value="porcentaje-total">% sobre importe + adicionales</option>
+                            <option value="valor">Valor fijo</option>
+                        </select>
+
+                        <input type="text" id="valor-descuento" placeholder="Ingrese valor o %">
                     </div>
 
-                    <div class="fila">
-                    <label>TOTAL ARS:</label>
-                    <input type="text" readonly>
+                    <!-- Adicionales -->
+                    <fieldset>
+                        <legend>Adicionales</legend>
 
-                    <label>TOTAL USD:</label>
-                    <input type="text" readonly>
-                    </div>
+                        <div class="fila">
+                            <label><input type="checkbox" id="chk-adicional-fijo"> Valor fijo</label>
+                            <input type="text" id="input-adicional-fijo" class="oculto" placeholder="Ej: $500">
+                        </div>
+
+                        <div class="fila">
+                            <label><input type="checkbox" id="chk-adicional-porc"> Porcentaje</label>
+                        </div>
+
+                        <div class="fila oculto" id="contenedor-porcentaje">
+                            <label><input type="radio" name="tipo-porcentaje" value="importe"> % (importe)</label>
+                            <label><input type="radio" name="tipo-porcentaje" value="total"> % (total)</label>
+                        </div>
+
+                        <div class="fila oculto" id="input-valor-porcentaje">
+                            <label>Valor (%):</label>
+                            <input type="text" placeholder="Ej: 100%">
+                        </div>
+                    </fieldset>
+
+
+
+                    <!-- Totales -->
+                    <fieldset>
+                        <legend>Total</legend>
+                        <div class="fila">
+                            <label>Total ARS:</label>
+                            <input type="text" readonly>
+
+                            <label>Total USD:</label>
+                            <input type="text" readonly>
+                        </div>
+                    </fieldset>
 
                     <div class="fila">
-                    <label>Comentarios:</label>
-                    <textarea placeholder="ej: costos: $..... + $..... = $....."></textarea>
+                        <label>Comentarios:</label>
+                        <textarea placeholder="Ej: costos: $..... + $..... = $....."></textarea>
                     </div>
                 </fieldset>
+
 
                 <div class="acciones">
                     <button id="btn-confirmar" class="btn-confirmar oculto">Generar Presupuesto</button>

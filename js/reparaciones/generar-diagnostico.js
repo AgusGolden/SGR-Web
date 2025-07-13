@@ -1,3 +1,5 @@
+// generar-diagnostico.js
+
 document.addEventListener('DOMContentLoaded', () => {
     const tabla = document.getElementById('tabla-reparaciones-pendientes');
     const botonesSeleccionar = tabla.querySelectorAll('.btn-seleccionar');

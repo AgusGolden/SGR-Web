@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listado de Reparaciones</title>
     <link rel="stylesheet" href="../../css/styles.css">
-    <link rel="stylesheet" href="../../css/ventas.css">
+    <link rel="stylesheet" href="../../css/reparaciones.css">
 </head>
 <body>
-
     <header>
         <nav class="menu-nav">
             <ul>
@@ -20,7 +18,6 @@
                 <li><a href="../compras.html">Compras</a></li>
             </ul>
         </nav>
-
         <nav class="submenu-nav">
             <ul>
                 <li><a href="./listar-reparaciones.html">Listar Reparaciones</a></li>
@@ -34,13 +31,10 @@
     </header>
 
     <main>
-        
         <h1>Listado de Reparaciones</h1>
-
-        <h2>Seleccionar una reparación para ver más detalles...</h2>
+        <h2 id="subtitulo">Seleccionar una reparación para ver más detalles...</h2>
 
         <section class="container">
-
             <div class="acciones">
                 <button id="btn-filtrar" class="btn-filtros">Filtrar</button>
                 <button id="btn-ver-mas" class="btn-ver-mas oculto">Ver Más</button>
@@ -83,13 +77,111 @@
                 </tbody>
             </table>
 
-        </section>
+            <div class="acciones oculto" id="acciones-form">
+                <button id="btn-volver">Volver</button>
+                <button id="btn-modificar">Modificar</button>
+            </div>
 
+            <form id="formulario-detalle" class="oculto">
+
+                <fieldset>
+                    <legend>Datos del Equipo</legend>
+                    <label>Fecha Ingreso: <input type="date" id="input-fecha"></label>
+                    <label>Reparación: <input type="text" id="input-reparacion"></label>
+                    <label>Cliente: <input type="text" id="input-cliente"></label>
+                    <label>Proveedor: <input type="text" id="input-proveedor"></label>
+                    <label>Título: <input type="text" id="input-titulo"></label>
+                    <label>Código: <input type="text" id="input-codigo"></label>
+                    <label>Serie: <input type="text" id="input-serie"></label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Diagnóstico e Informe</legend>
+                    <label>Fecha Diagnóstico: <input type="date"></label> 
+                    <label>Falla Informada: <input type="text"></label>
+                    <label>Causas Detectadas: <input type="text"></label>
+                    <label>Diagnóstico Técnico: <textarea></textarea></label>
+                    <label>Repuestos/Soluciones: <textarea></textarea></label>
+                    <label>Horas Trabajadas: <input type="number"></label>
+                    <label>Plazo Reparación: <input type="text"></label>
+                    <label>Cotización Diagnóstico: <input type="number"></label>
+                    <label>Fecha Informe: <input type="date"></label>
+                    <label>Comentarios Informe: <textarea></textarea></label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Proveedor</legend>
+                    <label>Remito Entrega: <input type="text"></label>
+                    <label>Doc Remito Entrega: <input type="file"></label>
+                    <label>Remito Reingreso: <input type="text"></label>
+                    <label>Doc Remito Reingreso: <input type="file"></label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Presupuesto</legend>
+                    <label>Número Proveedor: <input type="text"></label>
+                    <label>Moneda: 
+                        <select>
+                            <option>ARS</option>
+                            <option>USD</option>
+                        </select>
+                    </label>
+                    <label>Importe: <input type="number"></label>
+                    <label>Tipo de Descuento:
+                        <select id="tipo-descuento">
+                            <option value="">-</option>
+                            <option value="porcentaje-importe">% sobre importe</option>
+                            <option value="porcentaje-total">% sobre importe + adicionales</option>
+                            <option value="valor">Valor fijo</option>
+                        </select>
+                    </label>
+                    <label>Descuento: <input type="number" id="input-descuento" disabled></label>
+                    <label><input type="checkbox" id="chk-adicional-fijo"> Valor fijo</label>
+                    <label>Adicional Valor Fijo: <input type="number" id="input-adicional-fijo" disabled></label>
+                    <label><input type="checkbox" id="chk-adicional-porc"> Porcentaje</label>
+                    <label><input type="radio" name="tipo-porcentaje" value="importe" disabled> % (importe)</label>
+                    <label><input type="radio" name="tipo-porcentaje" value="total" disabled> % (total)</label>
+                    <label>Adicional %: <input type="number" id="input-adicional-porcentaje" disabled></label>
+                    <label>Total: <input type="number"></label>
+                    <label>Comentarios: <textarea></textarea></label>
+                    <label>OC Cliente: <input type="text"></label>
+                    <label>Doc OC Cliente: <input type="file"></label>
+                    <label>OC Proveedor: <input type="text"></label>
+                    <label>Doc OC Proveedor: <input type="file"></label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Entrega</legend>
+                    <label>Fecha Entrega: <input type="date"></label>
+                    <label>Remito Entrega: <input type="text"></label>
+                    <label>Doc Remito Entrega: <input type="file"></label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Factura</legend>
+                    <label>Fecha Factura: <input type="date"></label>
+                    <label>Número Factura: <input type="text"></label>
+                    <label>Doc Factura: <input type="file"></label>
+                    <label>Fecha Factura Proveedor: <input type="date"></label>
+                    <label>Número Factura Proveedor: <input type="text"></label>
+                    <label>Doc Factura Proveedor: <input type="file"></label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Pago</legend>
+                    <label>Fecha Pago: <input type="date"></label>
+                    <label>Importe Pagado: <input type="number"></label>
+                    <label>Observaciones: <textarea></textarea></label>
+                    <label>Pago a Proveedor: <input type="text"></label>
+                    <label>Doc Pago Proveedor: <input type="file"></label>
+                </fieldset>
+            </form>
+        </section>
+        
     </main>
 
     <script src="../../js/script.js"></script>
-    <script src="../../js/ventas.js"></script>
-    <script src="../../js/ventas/listar-reparaciones.js"></script>
-
+    <script src="../../js/reparaciones.js"></script>
+    <script src="../../js/reparaciones/listar-reparaciones.js"></script>
 </body>
 </html>
