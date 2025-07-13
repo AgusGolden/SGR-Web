@@ -1,72 +1,72 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const selectFactura = document.getElementById("select-factura");
-  const fechaFactura = document.getElementById("fecha-factura");
-  const importeFactura = document.getElementById("importe-factura");
-  const saldoFactura = document.getElementById("saldo-factura");
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('form-abonar-factura');
+    const fechaPago = document.getElementById('fecha-pago');
+    const importePago = document.getElementById('importe-pago');
 
-  const fechaPago = document.getElementById("fecha-pago");
-  const importePago = document.getElementById("importe-pago");
-  const formaPago = document.getElementById("forma-pago");
-  const form = document.getElementById("form-abonar-factura");
+    let facturaSeleccionada = null;
 
-  // Establecer fecha de pago por defecto a hoy
-  fechaPago.valueAsDate = new Date();
-
-  // Actualizar datos de factura al seleccionar
-  selectFactura.addEventListener("change", () => {
-    const option = selectFactura.selectedOptions[0];
-    if (!option || option.value === "") {
-      fechaFactura.value = "";
-      importeFactura.value = "";
-      saldoFactura.value = "";
-      importePago.value = "";
-      return;
-    }
-    fechaFactura.value = option.dataset.fecha;
-    importeFactura.value = option.dataset.importe;
-    saldoFactura.value = option.dataset.saldo;
-    importePago.value = option.dataset.saldo;
-    importePago.max = option.dataset.saldo;
-  });
-
-  // Validar importe pagado
-  importePago.addEventListener("input", () => {
-    const maxPago = parseFloat(importePago.max);
-    let valor = parseFloat(importePago.value);
-    if (isNaN(valor) || valor < 0) {
-      importePago.value = "";
-      return;
-    }
-    if (valor > maxPago) {
-      importePago.value = maxPago;
-    }
-  });
-
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    if (!selectFactura.value) {
-      alert("Seleccione una factura para abonar.");
-      return;
-    }
-    if (!formaPago.value) {
-      alert("Seleccione una forma de pago.");
-      return;
-    }
-    if (!importePago.value || parseFloat(importePago.value) <= 0) {
-      alert("Ingrese un importe válido para el pago.");
-      return;
-    }
-
-    // Aquí iría la lógica para enviar los datos al backend o guardarlos
-    alert(`Pago registrado para factura ${selectFactura.value} por $${importePago.value}`);
-
-    // Opcional: resetear formulario
-    form.reset();
+    // Fecha por defecto
     fechaPago.valueAsDate = new Date();
-    fechaFactura.value = "";
-    importeFactura.value = "";
-    saldoFactura.value = "";
-    importePago.max = "";
-  });
+
+    // Manejar selección de factura
+    const filas = document.querySelectorAll('#tabla-facturas tbody tr');
+    filas.forEach(fila => {
+        const radio = fila.querySelector('input[type="radio"]');
+        radio.addEventListener('change', () => {
+            facturaSeleccionada = {
+                nro: fila.dataset.nrofactura,
+                proveedor: fila.dataset.proveedor,
+                fecha: fila.dataset.fecha,
+                total: parseFloat(fila.dataset.total)
+            };
+
+            importePago.value = facturaSeleccionada.total;
+            importePago.max = facturaSeleccionada.total;
+        });
+    });
+
+    // Validación de monto ingresado
+    importePago.addEventListener('input', () => {
+        const max = parseFloat(importePago.max);
+        const valor = parseFloat(importePago.value);
+        if (isNaN(valor) || valor < 0) {
+            importePago.value = "";
+        } else if (valor > max) {
+            importePago.value = max;
+        }
+    });
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        if (!facturaSeleccionada) {
+            alert("Debe seleccionar una factura.");
+            return;
+        }
+
+        if (!importePago.value || parseFloat(importePago.value) <= 0) {
+            alert("Ingrese un importe válido.");
+            return;
+        }
+
+        const pago = {
+            factura: facturaSeleccionada.nro,
+            proveedor: facturaSeleccionada.proveedor,
+            fechaFactura: facturaSeleccionada.fecha,
+            totalFactura: facturaSeleccionada.total,
+            fechaPago: fechaPago.value,
+            importe: parseFloat(importePago.value),
+            observaciones: document.getElementById('observaciones-pago').value,
+            archivo: document.getElementById('doc-pago').files[0]?.name || "Sin archivo"
+        };
+
+        console.log("Pago registrado:", pago);
+        alert(`Pago registrado correctamente para la factura ${pago.factura}`);
+
+        // Reset
+        form.reset();
+        facturaSeleccionada = null;
+        fechaPago.valueAsDate = new Date();
+        importePago.max = "";
+    });
 });
