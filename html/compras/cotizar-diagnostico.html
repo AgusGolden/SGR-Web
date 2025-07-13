@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cotizar Diagnóstico</title>
+    <link rel="stylesheet" href="../../css/styles.css" />
+    <link rel="stylesheet" href="../../css/compras.css" />
+</head>
+
+<body>
+    <header>
+        <nav class="menu-nav">
+            <ul>
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="../clientes.html">Clientes</a></li>
+                <li><a href="../reparaciones.html">Reparaciones</a></li>
+                <li><a href="../ventas.html">Ventas</a></li>
+                <li><a href="../compras.html">Compras</a></li>
+            </ul>
+        </nav>
+
+        <nav class="submenu-nav">
+            <ul>
+                <li><a href="./cotizar-diagnostico.html" class="activo">Cotizar Diagnóstico</a></li>
+                <li><a href="./generar-oc.html">Generar OC</a></li>
+                <li><a href="./abonar-factura.html">Abonar Factura</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Cotizar Diagnóstico</h1>
+
+        <section class="contenedor">
+            <!-- Reparaciones con diagnóstico técnico -->
+            <fieldset>
+                <legend>Reparaciones con Diagnóstico Técnico</legend>
+                <table class="tabla" id="tabla-reparaciones">
+                    <thead>
+                        <tr>
+                            <th>Fecha Ingreso</th>
+                            <th>Reparación</th>
+                            <th>Equipo</th>
+                            <th>Serie</th>
+                            <th>Proveedor</th>
+                            <th>Seleccionar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-repuestos="Fuente de 600W, cambio de batería..." data-horas="15" data-horas-estimadas="20">
+                            <td>2025-07-10</td>
+                            <td>REP-1001</td>
+                            <td>Notebook</td>
+                            <td>SER12345</td>
+                            <td>Proveedor X</td>
+                            <td><button class="btn-seleccionar btn-volver">Seleccionar</button></td>
+                        </tr>
+                        <tr data-repuestos="Cambio de mother" data-horas="8" data-horas-estimadas="10">
+                            <td>2025-07-09</td>
+                            <td>REP-1002</td>
+                            <td>PC Escritorio</td>
+                            <td>SER67890</td>
+                            <td>Proveedor Y</td>
+                            <td><button class="btn-seleccionar btn-volver">Seleccionar</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+
+
+            <!-- Formulario de Cotización del Proveedor -->
+            <fieldset id="form-cotizacion" class="oculto">
+                <legend>Presupuesto del Proveedor</legend>
+
+                <div class="fila">
+                    <label for="repuestos">Repuestos o soluciones sugeridas:</label>
+                    <textarea id="repuestos" rows="2" disabled>Fuente de 600W, cambio de batería...</textarea>
+                </div>
+
+                <div class="fila">
+                    <div class="columna">
+                        <label for="horas-trabajadas">Horas trabajadas:</label>
+                        <input type="number" id="horas-trabajadas" min="0" value="15" disabled />
+                    </div>
+
+                    <div class="columna">
+                        <label for="horas-estimadas">Horas totales de trabajo estimadas:</label>
+                        <input type="number" id="horas-estimadas" min="0" value="20" disabled />
+                    </div>
+                </div>
+
+                <div class="fila">
+                    <label for="comentarios">Observaciones:</label>
+                    <textarea id="comentarios" rows="3" placeholder="Condiciones del proveedor, garantías, repuestos, etc..."></textarea>
+                </div>
+
+                <div class="fila">
+                    <label for="plazo">Plazo estimado de reparación:</label>
+                    <input type="text" id="plazo" placeholder="Ej: 5 días hábiles" />
+                </div>
+
+                <div class="fila">
+                    <div class="columna">
+                        <label for="moneda">Moneda:</label>
+                        <select id="moneda">
+                            <option value="ARS">ARS</option>
+                            <option value="USD">USD</option>
+                        </select>
+                    </div>
+
+                    <div class="columna">
+                        <label for="monto">Importe:</label>
+                        <input type="number" id="monto" placeholder="Importe estimado de reparación..." />
+                    </div>
+                </div>
+
+                <div class="acciones">
+                    <button id="btn-guardar-cotizacion">Guardar Cotización</button>
+                    <button id="btn-cancelar-cotizacion" type="button">Cancelar</button>
+                </div>
+            </fieldset>
+
+
+        </section>
+
+    </main>
+
+    <script src="../../js/script.js"></script>
+    <script src="../../js/compras.js"></script>
+    <script src="../../js/compras/cotizar-diagnostico.js"></script>
+</body>
+</html>
