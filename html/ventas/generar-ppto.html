@@ -117,26 +117,26 @@
 
                     <div class="fila">
                         <label>Número de Reparación:</label>
-                        <input type="text" readonly />
+                        <input type="text" id="nro-reparacion" readonly />
 
                         <label>Fecha de Ingreso:</label>
-                        <input type="date" value="2025-05-08" readonly />
+                        <input type="date" id="fecha-ingreso" readonly />
                     </div>
 
                     <div class="fila">
                         <label>Cliente:</label>
-                        <input type="text" readonly />
+                        <input type="text" id="cliente" readonly />
                     </div>
 
                     <div class="fila">
                         <label>Título del Equipo:</label>
-                        <input type="text" readonly />
+                        <input type="text" id="titulo" readonly />
 
                         <label>Código del Equipo:</label>
-                        <input type="text" readonly />
+                        <input type="text" id="codigo" readonly />
 
                         <label>Número de Serie:</label>
-                        <input type="text" readonly />
+                        <input type="text" id="serie" readonly />
                     </div>
                 </fieldset>
 
@@ -147,6 +147,11 @@
                     <div class="fila">
                         <label>Fecha del Diagnóstico:</label>
                         <input type="date" id="fecha-diagnostico" readonly />
+                    </div>
+
+                    <div class="fila">
+                        <label>Fecha de Cotización:</label>
+                        <input type="date" id="fecha-cotizacion" readonly />
                     </div>
 
                     <div class="fila">
@@ -179,12 +184,12 @@
 
                     <div class="fila">
                         <label>Fecha del Presupuesto:</label>
-                        <input type="date" id="fecha-presupuesto" disabled />
+                        <input type="date" id="fecha-presupuesto-proveedor" />
                     </div>
 
                     <div class="fila">
                         <label>Moneda:</label>
-                        <select id="moneda-ppto">
+                        <select id="moneda-ppto-proveedor">
                             <option value="ARS">ARS</option>
                             <option value="USD">USD</option>
                         </select>
@@ -192,7 +197,7 @@
 
                     <div class="fila">
                         <label>Costo:</label>
-                        <input type="number" id="importe-ppto" />
+                        <input type="number" id="costo" />
                     </div>
 
                     <div class="fila">
@@ -206,13 +211,13 @@
                     <legend>Informe</legend>
 
                     <div class="fila">
-                        <label>Fecha de Informe:</label>
-                        <input type="date" id="hoy" readonly />
+                        <label>Fecha del Presupuesto:</label>
+                        <input type="date" id="fecha-presupuesto" readonly />
                     </div>
 
                     <div class="fila">
                         <label>Falla Informada:</label>
-                        <textarea placeholder="Ej: No enciende, pantalla negra..." readonly></textarea>
+                        <textarea id="falla-informada" readonly>Ej: No enciende, pantalla negra...</textarea>
                     </div>
 
                     <div class="fila">
@@ -289,10 +294,12 @@
                         <div class="fila">
                             <label>Total USD:</label>
                             <input type="text" id="total-usd" readonly />
-
+                        </div>
+                            <div class="fila">
                             <label>Total ARS:</label>
                             <input type="text" id="total-ars" readonly />
-
+                        </div>
+                        <div class="fila">
                             <label id="label-tipo-cambio">Tipo de Cambio:</label>
                             <input type="text" id="tipo-cambio" readonly />
                         </div>
