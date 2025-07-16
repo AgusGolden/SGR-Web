@@ -13,6 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnGuardar = document.getElementById('btn-guardar-diagnostico');
     const btnCancelar = document.getElementById('btn-cancelar-diagnostico');
 
+    const hoy = new Date().toISOString().split('T')[0];
+    document.getElementById("hoy").value = hoy;
+
     botonesSeleccionar.forEach(btn => {
         btn.addEventListener('click', () => {
             formDiagnostico.classList.remove('oculto');
@@ -27,7 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     btnGuardar.addEventListener('click', () => {
         if (
-            campoSintoma.value.trim() === '' ||
             campoCausa.value.trim() === '' ||
             campoDiagnostico.value.trim() === ''
         ) {

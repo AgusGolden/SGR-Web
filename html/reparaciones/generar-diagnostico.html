@@ -50,6 +50,7 @@
                             <th>Cliente</th>
                             <th>Equipo</th>
                             <th>Serie</th>
+                            <th>Descripción</th>
                             <th>Seleccionar</th>
                         </tr>
                     </thead>
@@ -61,6 +62,7 @@
                             <td>Empresa X</td>
                             <td>Notebook</td>
                             <td>SER12345</td>
+                            <td>Notebook con 2 SSD</td>
                             <td><button class="btn-seleccionar btn-volver">Seleccionar</button></td>
                         </tr>
                         <tr>
@@ -69,6 +71,7 @@
                             <td>Empresa Y</td>
                             <td>PC Escritorio</td>
                             <td>SER67890</td>
+                            <td>PC vieja con disco HDD externo y pendrive 16Gb</td>
                             <td><button class="btn-seleccionar btn-volver">Seleccionar</button></td>
                         </tr>
                     </tbody>
@@ -80,23 +83,21 @@
                 <legend>Detalle del Diagnóstico Técnico</legend>
 
                 <div class="fila">
+                    <label>Fecha de diagnóstico:</label>
+                    <input type="date" id="hoy" disabled>
+                </div>
+
+                <div class="fila">
                     <div class="columna">
-                        <label for="sintoma">Síntoma informado:</label>
-                        <textarea id="sintoma" rows="2" placeholder="Ej: No enciende, pantalla negra..."></textarea>
+                        <label for="sintoma">Falla informada:</label>
+                        <textarea id="sintoma" rows="2" placeholder="Ej: No enciende, pantalla negra..." disabled></textarea>
                     </div>
                 </div>
 
                 <div class="fila">
                     <div class="columna">
-                        <label for="causa">Causa detectada:</label>
+                        <label for="causa">Causas detectadas:</label>
                         <textarea id="causa" rows="2" placeholder="Ej: Fuente dañada, capacitor quemado..."></textarea>
-                    </div>
-                </div>
-
-                <div class="fila">
-                    <div class="columna">
-                        <label for="diagnostico">Diagnóstico técnico:</label>
-                        <textarea id="diagnostico" rows="3" placeholder="Descripción técnica del estado del equipo..."></textarea>
                     </div>
                 </div>
 
@@ -109,10 +110,32 @@
 
                 <div class="fila">
                     <div class="columna">
-                        <label for="repuestos">Horas trabajadas:</label>
-                        <textarea id="repuestos" rows="2" placeholder="Ej: 15hs hombre y 48hs reposo..."></textarea>
+                        <label for="diagnostico">Diagnóstico técnico:</label>
+                        <textarea id="diagnostico" rows="3" placeholder="Descripción técnica del estado del equipo..."></textarea>
                     </div>
                 </div>
+
+                <div class="fila">
+                    <div class="columna">
+                        <label for="repuestos">Horas trabajadas:</label>
+                        <textarea id="repuestos" rows="2" placeholder="Ej: 15hs hombre + 48hs reposo..."></textarea>
+                    </div>
+                </div>
+
+                <div class="fila">
+                    <div class="columna">
+                        <label for="repuestos">Horas totales estimadas:</label>
+                        <textarea id="repuestos" rows="2" placeholder="Ej: 20hs hombre + 72hs en reposo..."></textarea>
+                    </div>
+                </div>
+
+                <div class="fila">
+                    <div class="columna">
+                        <label for="comentarios">Comentarios:</label>
+                        <textarea id="comentarios" rows="2" placeholder="Era una falla rara, se solucionó realizando..."></textarea>
+                    </div>
+                </div>
+
 
                 <div class="acciones">
                     <button id="btn-guardar-diagnostico">Guardar Diagnóstico</button>
